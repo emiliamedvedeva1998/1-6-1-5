@@ -1,0 +1,34 @@
+@use "../util" as u;
+
+.container {
+  padding-inline: u.rem(16);
+  margin-inline: auto;
+
+  @include u.breakpoint(xsmall) {
+    padding-inline: u.rem(24);
+  }
+
+  @include u.breakpoint(large) {
+    max-width: unset;
+    padding-inline: u.rem(34);
+  }
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  max-width: u.rem(1426);
+  margin-inline: auto;
+  background-color: var(--color-white-2);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+
+  > .main {
+    flex-grow: 1;
+  }
+}

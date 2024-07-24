@@ -1,0 +1,19 @@
+@use "../../util" as u;
+
+.image-info {
+  display: flex;
+
+  &__img {
+    flex-grow: 1;
+    object-fit: contain;
+    object-position: top;
+    @include u.breakpoint(xsmall) {
+      border-radius: u.rem(10);
+    }
+  }
+
+  &__picture {
+    display: flex;
+    flex-grow: 1;
+  }
+}

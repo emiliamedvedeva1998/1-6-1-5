@@ -1,0 +1,19 @@
+@use "../../../util" as u;
+
+.brand {
+  padding-inline: u.rem(16);
+
+  @include u.breakpoint(small) {
+    transition: height var(--swiper-expose-duration) ease-in-out;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: u.rem(72);
+    @include u.breakpoint(small) {
+      height: u.rem(70);
+    }
+  }
+}

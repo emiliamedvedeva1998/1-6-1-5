@@ -1,0 +1,54 @@
+@use "../../../util" as u;
+
+.brands {
+  margin-bottom: u.rem(19);
+
+  @include u.breakpoint(small) {
+    margin-bottom: u.rem(24);
+  }
+
+  @include u.breakpoint(large) {
+    margin-bottom: u.rem(43);
+  }
+
+  &__swiper {
+    margin-inline: u.rem(-16);
+    padding-inline: u.rem(16);
+    position: relative;
+
+    @include u.breakpoint(small) {
+      margin: 0;
+      padding: 0;
+    }
+
+    &-wrapper {
+      margin-bottom: u.rem(14);
+    }
+  }
+
+  &__section-title {
+    margin-bottom: u.rem(14);
+
+    @include u.breakpoint(small) {
+      margin-bottom: u.rem(23);
+    }
+  }
+
+  &__content {
+    margin-inline: u.rem(-16);
+    padding-inline: u.rem(16);
+  }
+
+  &__button {
+    display: none;
+
+    @include u.breakpoint(small) {
+      display: flex;
+      font-weight: 500;
+      font-size: u.rem(16);
+      color: var(--color-black-1);
+      margin-left: u.rem(-8);
+      gap: 0;
+    }
+  }
+}

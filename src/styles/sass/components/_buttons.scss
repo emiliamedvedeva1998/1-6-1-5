@@ -1,0 +1,149 @@
+@use "../util" as u;
+
+button,
+[type="submit"] {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin hovAct($translate, $scale, $opacity, $button) {
+  > #{$button} {
+    transform: translateX(u.rem($translate));
+  }
+  > svg {
+    transform: scale($scale);
+    opacity: $opacity;
+  }
+}
+
+.button {
+  $button: &;
+  display: flex;
+  cursor: pointer;
+
+  &__label {
+    display: none;
+    font-size: u.rem(16);
+    @include u.breakpoint(large) {
+      display: block;
+    }
+  }
+
+  > svg {
+    height: u.rem(40);
+    width: u.rem(40);
+  }
+
+  > svg,
+  > &__label {
+    transition-property: transform, opacity;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &:hover {
+    @include hovAct(-2, 1.05, 0.8, #{$button}__label);
+  }
+
+  &:active {
+    @include hovAct(2, 0.95, 1, #{$button}__label);
+  }
+}
+
+.burger {
+  display: flex;
+}
+
+.button-read-more {
+  display: flex;
+  align-items: center;
+  gap: u.rem(8);
+
+  @include u.breakpoint(xsmall) {
+    padding: u.rem(2) 0 0 u.rem(1);
+  }
+  @include u.breakpoint(large) {
+    gap: 0;
+  }
+
+  &::before {
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../images/svgs/expand.svg");
+    height: u.rem(40);
+    width: u.rem(40);
+    transition: transform var(--swiper-expose-duration) ease-in-out;
+  }
+
+  &__label {
+    margin-left: u.rem(8);
+  }
+}
+
+.menu-button {
+  @include u.breakpoint(xsmall) {
+    display: flex;
+  }
+}
+
+.button-info__label {
+  &__label {
+    @include u.breakpoint(large) {
+      display: unset;
+      font-weight: medium;
+      margin-right: u.rem(8);
+    }
+  }
+}
+
+.arrow-button {
+  & {
+    transition: transform 0.1s ease-in-out;
+    width: u.rem(40);
+    height: u.rem(40);
+  }
+
+  &:hover {
+    transform: translateX(-20%);
+  }
+
+  &:active {
+    transform: unset;
+  }
+}
+
+.button-link {
+  display: flex;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: var(--color-pink-1);
+  border-radius: u.rem(16);
+  font-size: u.rem(12);
+  padding: u.rem(9) u.rem(18);
+  color: var(--color-white-3);
+  font-weight: bold;
+  text-transform: uppercase;
+  gap: u.rem(12);
+
+  &::after {
+    @include u.transition(ease-in-out, 0.1s, transform);
+    content: "";
+    background-image: url("../images/svgs/mini-arrow.svg");
+    width: u.rem(8);
+    height: u.rem(10);
+  }
+
+  &:hover {
+    &::after {
+      transform: translateX(u.rem(5));
+    }
+  }
+
+  &:active {
+    &::after {
+      transform: translateX(0);
+    }
+  }
+}

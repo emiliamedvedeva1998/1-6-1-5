@@ -1,0 +1,67 @@
+@use "../../../util" as u;
+
+.prices {
+  &__table {
+    margin-bottom: u.rem(13);
+    @include u.breakpoint(small) {
+      margin-bottom: u.rem(10);
+    }
+
+    @include u.breakpoint(large) {
+      margin-bottom: u.rem(18);
+    }
+  }
+
+  &__section-title {
+    margin-bottom: u.rem(15);
+    @include u.breakpoint(small) {
+      margin-bottom: u.rem(32);
+    }
+  }
+
+  &__desciption {
+    font-size: u.rem(15);
+    line-height: u.rem(20);
+    color: var(--color-black-1);
+    margin-bottom: u.rem(16);
+    @include u.breakpoint(small) {
+      font-size: u.rem(14);
+      width: 57%;
+    }
+    @include u.breakpoint(small) {
+      width: 40%;
+      margin-bottom: u.rem(15);
+    }
+  }
+
+  &__info {
+    position: relative;
+    color: var(--color-black-1);
+    font-size: u.rem(16);
+    line-height: u.rem(24);
+    font-weight: bold;
+    @include u.breakpoint(small) {
+      font-size: u.rem(15);
+    }
+
+    &::after {
+      transition: transform 0.1s ease-in-out;
+      content: "";
+      position: relative;
+      margin-left: u.rem(5);
+      display: inline-flex;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("../images/svgs/more.svg");
+      height: u.rem(10);
+      width: u.rem(10);
+    }
+    &:hover:after {
+      transform: translateX(u.rem(4));
+    }
+    &:active:after {
+      transform: translateX(u.rem(-2));
+    }
+  }
+}
