@@ -1,9 +1,0 @@
-@use "../../util" as u;
-
-.menu {
-  &__list {
-    @include u.breakpoint(xsmall) {
-      display: flex;
-    }
-  }
-}
